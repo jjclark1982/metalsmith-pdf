@@ -1,0 +1,23 @@
+{
+  "name": "metalsmith-pdf",
+  "version": "1.0.0",
+  "description": "pdf generator for metalsmith",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jjclark1982/metalsmith-pdf.git"
+  },
+  "author": "Jesse Clark <jjclark1982@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jjclark1982/metalsmith-pdf/issues"
+  },
+  "homepage": "https://github.com/jjclark1982/metalsmith-pdf",
+  "dependencies": {
+    "minimatch": "^1.0.0",
+    "wkhtmltopdf": "^0.1.5"
+  }
+}
