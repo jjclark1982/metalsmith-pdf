@@ -1,5 +1,5 @@
-var wkhtmltopdf = require("wkhtmltopdf");
-var async = require("async");
+var wkhtmltopdf = require('wkhtmltopdf');
+var async = require('async');
 var minimatch = require('minimatch');
 
 var defaults = {
@@ -16,12 +16,12 @@ module.exports = function(options){
         options = {};
     }
     for (var key in defaults) {
-        if (Object.hasOwnProperty.call(options, key)) {
+        if (!Object.hasOwnProperty.call(options, key)) {
             options[key] = defaults[key];
         }
     }
     delete options.output;
-    var pattern = options.pattern || "**/*.html";
+    var pattern = options.pattern;
     delete options.pattern;
 
     return function(files, metalsmith, done){
