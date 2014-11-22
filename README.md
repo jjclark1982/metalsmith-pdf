@@ -44,7 +44,3 @@ All of the same options apply, just add them to the `"plugins"` key in your `met
 ## License
 
   MIT
-
-## TODO
-
-- Support absolute links
