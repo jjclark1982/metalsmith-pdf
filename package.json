@@ -1,10 +1,10 @@
 {
   "name": "metalsmith-pdf",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "pdf generator for metalsmith",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,9 @@
     "lodash": "^2.4.1",
     "minimatch": "^1.0.0",
     "wkhtmltopdf": "^0.1.5"
+  },
+  "devDependencies": {
+    "metalsmith": "^1.0.1",
+    "mocha": "^2.0.1"
   }
 }

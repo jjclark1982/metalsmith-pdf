@@ -16,7 +16,7 @@ module.exports = function(options){
     if (typeof options === 'string') {
         options = {pattern: options};
     }
-    options = _.defaults(options, defaults);
+    options = _.defaults({}, options, defaults);
     delete options.output;
     var pattern = options.pattern;
     delete options.pattern;
@@ -29,16 +29,17 @@ module.exports = function(options){
             debug("Started HTTP server on port %d", server.address().port);
             async.each(paths, makePdf.bind(null, options, server.address(), files), function(){
                 server.close();
+                debug("Stopped HTTP server");
                 done();
             });
         });
     }
 }
 
-function makePdf(options, address, files, path, done) {
-    var sourceUrl = "http://"+address.address+":"+address.port+"/"+path;
+function makePdf(options, host, files, path, done) {
+    debug("Generating PDF from %s", path)
 
-    debug("Generating PDF for %s", path)
+    var sourceUrl = "http://"+host.address+":"+host.port+"/"+path;
     var stream = wkhtmltopdf(sourceUrl, options);
     var buffers = []
     stream.on('data', function(part){
@@ -50,7 +51,7 @@ function makePdf(options, address, files, path, done) {
             contents: Buffer.concat(buffers)
         }
         files[destPath] = destFile;
-        debug("Successfully generated PDF for %s", path)
+        debug("Successfully generated %s", destPath)
         done();
     });
 }
