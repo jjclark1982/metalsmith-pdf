@@ -7,9 +7,7 @@ var debug = require('debug')('metalsmith-pdf');
 
 var defaults = {
     pattern: "**/*.html",
-    encoding: "utf-8",
-    printMediaType: true,
-    pageSize: "letter"
+    encoding: "utf-8"
 };
 
 module.exports = function(options){
